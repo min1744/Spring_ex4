@@ -10,13 +10,10 @@
 		<property name="url" value="jdbc:oracle:thin:@192.168.56.101:1521:xe" />
 		<property name="driver"	value="oracle.jdbc.driver.OracleDriver" />
 	</bean>
-	<bean>
-		<constructor-arg name="DBConnector" ref="dbConnector"></constructor-arg>
-	</bean>
 	<bean class="com.iu.board.notice.NoticeDAO" id="noticeDAO">
-		<property name="data" ref="dbConnector"></property>
+		<constructor-arg name="dbConnector" ref="dbConnector"/>
 	</bean>
 	<bean class="com.iu.board.notice.NoticeService" id="noticeService">
-		<property name="data" ref="noticeDAO"></property>
+		<constructor-arg name="noticeDAO" ref="noticeDAO"/>
 	</bean>
 </beans>

@@ -12,6 +12,7 @@ public class DBConnector {
    private String driver;
    
    public Connection getConnect() throws Exception{
+	  System.out.println("DBConnector");
       Class.forName(driver);
       Connection con = DriverManager.getConnection(url, user, password);
       
